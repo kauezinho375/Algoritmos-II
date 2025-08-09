@@ -1,3 +1,5 @@
+08/08/2025
+
 #include <stdio.h>      // Biblioteca padrão para entrada e saida (printf)
 #include <unistd.h>     // Biblioteca POSIX, contem a função getcwd()
 #include <limits.h>     // Contem a constante PATH_MAX
