@@ -1,0 +1,18 @@
+#include <stdio.h>      // Biblioteca padrão para entrada e saida (printf)
+#include <unistd.h>     // Biblioteca POSIX, contem a função getcwd()
+#include <limits.h>     // Contem a constante PATH_MAX
+
+int main(void)
+{
+    // Cria um vetor para armazenar o caminho do diretório atual.
+    char cwd[PATH_MAX];
+
+    // Tenta obter o diretório atual e armazena em 'cwd'.
+    if (getcwd(cwd, sizeof(cwd)) != NULL)
+        // se conseguiu, imprime o caminho na tela.
+        printf("Estudando comandos do Linux com linguagem C \n");
+    printf("%s\n", cwd);
+
+    // retorna 0 para indicar que o programa terminou com sucesso.
+    return 0;
+}   
