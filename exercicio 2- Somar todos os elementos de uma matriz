@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main()
+{
+    int matriz[2][3] = {{1,2,3}, {4,5,6}}; 
+    int i, j, soma = 0; // variavel para armazenar a soma
+
+    // Percorrendo a matriz
+    for(i = 0; i < 2; i++)
+    {
+        for(j = 0; j < 3; j++)
+        {
+            soma += matriz[i][j]; // soma cada elemento
+            // soma = matriz[i][j] + soma; -> um tipo de fazer que o professor não recomenda (noob)
+        }
+    }
+    printf("Soma dos elementos: %d\n", soma);
+    return 0;
+}
