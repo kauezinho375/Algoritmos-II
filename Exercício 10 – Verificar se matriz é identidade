@@ -1,0 +1,27 @@
+// Não completada
+
+#include <stdio.h>
+
+int main()
+{
+    int matriz [3][3] = {{1,0,0},{0,1,0},{0,0,1}};
+    int i, j;
+    int identidade = 1;
+    
+    for(i = 0; i < 3; i++)
+    {
+        for(j = 0; j < 3; j++)
+        {
+            if( (i == j) && (matriz[i][j]) != 1) || (i != j && (matriz[i][j])) (i != 0)
+            {
+                identidade = 0; // não é identidade
+            }
+        }
+    }
+
+    if(identidade)
+        printf("Matriz identidade\n"); // Mensagem se for identidade
+    else
+        printf("Nao eh matriz identidade\n"); // caso contrario
+    return 0;
+}
