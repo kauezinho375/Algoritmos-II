@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main()
+{
+    int matriz [2][3] = {{3,4,1},{7,2,6}}; // Declaração
+    int i, j;
+    int maior = matriz [0][0]; // Assume primeiro o valor como maior
+    
+    for(i = 0; i < 2; i++)
+    {
+        for(j = 0; j < 3; j++)
+        {
+            if(matriz[i][j] > maior) // verifica se elemento é maior
+            {
+                maior = matriz[i][j]; // atualiza maior valor
+            }
+        }
+    }
+
+    for(i = 0; i < 1; i++)
+    {
+        for(j = 0; j < 1; j++)
+        {
+            printf("Maior Elemento: %d\n ", maior);
+        }
+    }
+    return 0;
+}
