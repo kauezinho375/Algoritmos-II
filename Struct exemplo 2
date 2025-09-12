@@ -1,0 +1,23 @@
+// Ler dados de uma pessoa (nome com fgets)
+#include <stdio.h>
+
+struct Pessoa
+{
+    char nome[50];
+    int idade;
+};
+
+int main()
+{
+    struct Pessoa p;
+
+    printf("Digite o nome: ");
+    fgets(p.nome, sizeof(p.nome), stdin);
+
+    printf("Digite a idade: ");
+    scanf("%d", &p.idade);
+
+    printf("Nome: %sIdade: %d\n", p.nome, p.idade);
+
+    return 0;
+}
