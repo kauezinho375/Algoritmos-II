@@ -1,0 +1,23 @@
+// Ler largura e altura de um retangulo
+#include <stdio.h>
+
+struct Retangulo
+{
+    int largura;
+    int altura;
+};
+
+int main()
+{
+    struct Retangulo r;
+
+    printf("Digite a largura do retangulo: ");
+    scanf("%d", &r.largura);
+
+    printf("Digite a altura do retangulo: ");
+    scanf("%d", &r.altura);
+
+    printf("Retangulo %d x %d\n", r.largura, r.altura);
+
+    return 0;
+}
