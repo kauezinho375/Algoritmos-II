@@ -1,0 +1,29 @@
+// Ler coordenadas 2D
+#include <stdio.h>
+
+// Criar a minha struct
+// struct - matriz com varios tipos
+// É um tipo de estrutura que o DEV podem criar seu proprio tipo
+struct Ponto
+{
+    float x;
+    float y;
+};
+
+int main()
+{
+    // nome da estrutura = Ponto
+    // apelido da estrutura.
+    struct Ponto p1;
+    // A variavel p1 é do tipo Ponto
+    
+    printf("Digite a coordenada X: ");
+    scanf("%f", &p1.x);
+
+    printf("Digite a coordenada Y: ");
+    scanf("%f", &p1.y);
+
+    printf("Ponto: (%.2f, %.2f)\n", p1.x, p1.y);
+
+    return 0;
+}
