@@ -1,0 +1,29 @@
+// Ler largura e altura de um retangulo
+#include <stdio.h>
+
+struct Data
+{
+    int dia;
+    int mes;
+    int ano;
+};
+struct Aluno
+{
+    char nome[50];
+    struct Data nascimento;
+};
+
+int main()
+{
+    struct Aluno aluno;
+
+    printf("Digite o nome do aluno: ");
+    fgets(aluno.nome,sizeof(aluno.nome), stdin);
+
+    printf("Digite a data de nascimento (dia mes ano): ");
+    scanf("%d %d %d", &aluno.nascimento.dia, &aluno.nascimento.mes, &aluno.nascimento.ano);
+
+    printf("aluno %sNascimento: %02d/%02d/%d\n", aluno.nome, aluno.nascimento.dia, aluno.nascimento.mes, aluno.nascimento.ano);
+
+    return 0;
+}
