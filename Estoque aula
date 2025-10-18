@@ -1,0 +1,108 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
+
+#define MAX_PRODUTOS 100
+
+typedef struct {
+    int id;
+    char nome[50];
+    int quantidade;
+    float preco;
+} Produto;
+
+void cadastrarProduto(Produto estoque[], int *total) {
+    if (*total >= MAX_PRODUTOS) {
+        printf("Estoque cheio! Não é possível cadastrar mais produtos.\n");
+        return;
+    }
+
+    Produto p;
+    p.id = *total + 1;
+
+    printf("\nNome do produto: ");
+    scanf(" %[^\n]", p.nome);
+    printf("Quantidade: ");
+    scanf("%d", &p.quantidade);
+    printf("Preço: ");
+    scanf("%f", &p.preco);
+
+    estoque[*total] = p;
+    (*total)++;
+
+    printf("Produto cadastrado com sucesso! ID: %d\n", p.id);
+}
+
+void listarProdutos(Produto estoque[], int total) {
+    if (total == 0) {
+        printf("Nenhum produto cadastrado.\n");
+        return;
+    }
+
+    printf("\n=== Lista de Produtos ===\n");
+    for (int i = 0; i < total; i++) {
+        printf("ID: %d | Nome: %s | Quantidade: %d | Preço: R$ %.2f\n",
+               estoque[i].id, estoque[i].nome, estoque[i].quantidade, estoque[i].preco);
+    }
+    printf("=========================\n");
+}
+
+void atualizarQuantidade(Produto estoque[], int total) {
+    int id, novaQuantidade;
+    printf("Digite o ID do produto para atualizar: ");
+    scanf("%d", &id);
+
+    int encontrado = 0;
+    for (int i = 0; i < total; i++) {
+        if (estoque[i].id == id) {
+            printf("Produto encontrado: %s (Quantidade atual: %d)\n", estoque[i].nome, estoque[i].quantidade);
+            printf("Nova quantidade: ");
+            scanf("%d", &novaQuantidade);
+            estoque[i].quantidade = novaQuantidade;
+            printf("Quantidade atualizada com sucesso.\n");
+            encontrado = 1;
+            break;
+        }
+    }
+
+    if (!encontrado) {
+        printf("Produto com ID %d não encontrado.\n", id);
+    }
+}
+
+int main() {
+    setlocale(LC_ALL, "Portuguese");
+    Produto estoque[MAX_PRODUTOS];
+    int totalProdutos = 0;
+    int opcao;
+
+    do {
+        printf("\n===== MENU ESTOQUE =====\n");
+        printf("1. Cadastrar produto\n");
+        printf("2. Listar produtos\n");
+        printf("3. Atualizar quantidade\n");
+        printf("4. Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        switch(opcao) {
+            case 1:
+                cadastrarProduto(estoque, &totalProdutos);
+                break;
+            case 2:
+                listarProdutos(estoque, totalProdutos);
+                break;
+            case 3:
+                atualizarQuantidade(estoque, totalProdutos);
+                break;
+            case 4:
+                printf("Saindo...\n");
+                break;
+            default:
+                printf("Opção inválida. Tente novamente.\n");
+        }
+    } while (opcao != 4);
+
+    return 0;
+}
